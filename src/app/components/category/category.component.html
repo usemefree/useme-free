@@ -1,0 +1,5 @@
+<ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let item of cat">
+        <button type="button" class=" btn btn-link" (click)="setKey(item.id)" >{{ item.name }}</button>
+    </li>
+</ul>

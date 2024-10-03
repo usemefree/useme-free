@@ -1,0 +1,9 @@
+.cardicon{
+    float: left; 
+    height:3rem; 
+    width: 3rem; 
+    border-radius: 20px;
+    margin-left: 1rem; 
+    margin-right: 1rem; 
+    background-color: whitesmoke;
+}
