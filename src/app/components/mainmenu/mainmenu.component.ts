@@ -30,7 +30,9 @@ export class MainmenuComponent implements OnInit {
 
   setKey(id: number): void {
     GlobalConstants.currentOperatingS = id;
-    this.sService.getDataPagination(1)
+    console.log(GlobalConstants.currentOperatingS);
+    //this.sService.getDataPagination(1)
+    this.sService.getJSON(1);
   }
 
 }

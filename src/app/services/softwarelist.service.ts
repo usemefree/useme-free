@@ -17,19 +17,43 @@ export class SoftwarelistService {
 
   constructor(private http: HttpClient) { }
 
-  public getJSON(): Observable<jsonDataResult> {
-    const apiUrl = this.controller + "GetData";
+  public getJSON(PageNo: number = 1): void {
+    
+    this.os = GlobalConstants.mainMenuData.find(x => x.id === GlobalConstants.currentOperatingS)?.name ?? "Windows";
 
-    const header = new HttpHeaders(
-      {
-        'ApiKey': GlobalConstants.httpGetKey,
-      }
-    );
+    this.http.get<jsonDataResult>(`assets/data/package${this.os}.json`)
+      .subscribe(data => {
+        const datais: jsonDataResult = (data as jsonDataResult);
+        if (datais.message === "Success") {
+          this.length = datais.recordCount;
+          GlobalConstants.softwareData = (datais.record as SoftwareData[]);
 
-    return this.http.get<jsonDataResult>(
-      apiUrl,
-      { headers: header }
-    );
+          let dataView = GlobalConstants.softwareData.map(x => {
+            let ydata = GlobalConstants.mainMenuData.find(y => y.id === x.os);
+            let ccat = GlobalConstants.categoryData.find(z => z.id === x.category);
+            return {
+              id: x.id,
+              isactive: x.isactive,
+              os: ydata ? ydata.name : 'XOS',
+              category: ccat ? ccat.name : 'ALL',
+              name: x.name,
+              imgsrc: x.imgsrc,
+              summary: x.summary,
+              weblink: x.weblink,
+              downloadlink: x.downloadlink,
+              details: x.details,
+              counting: x.counting
+            }
+          });
+
+          console.log(dataView);
+          const start = (PageNo - 1) * GlobalConstants.pageSize;
+          const end = start + GlobalConstants.pageSize;
+
+          console.log(`Start:${start} # end:${end}`);
+          GlobalConstants.softwareDataView = (dataView as SoftwareDataView[]).slice(start,end);
+        }
+      });
   }
 
   public getDataPagination(PageNo: number = 1): void {

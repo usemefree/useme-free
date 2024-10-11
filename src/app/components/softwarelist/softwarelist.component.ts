@@ -32,7 +32,7 @@ export class SoftwarelistComponent implements OnInit {
 
   getdataPagination(): void {
     let osid = GlobalConstants.mainMenuData.find(x => x.id === GlobalConstants.currentOperatingS)?.name;
-    this.service.getDataPagination(this.currentPage);
+    this.service.getJSON(this.currentPage);
   }
 
   pagination(pageno: number = 1) {

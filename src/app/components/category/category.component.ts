@@ -29,6 +29,6 @@ export class CategoryComponent implements OnInit {
 
   setKey(id: number): void {
     GlobalConstants.currentcategory = id;
-    console.log(GlobalConstants.currentcategory);
+   // console.log(GlobalConstants.currentcategory);
   }
 }
