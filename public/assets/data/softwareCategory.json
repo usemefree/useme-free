@@ -1,0 +1,30 @@
+{
+    "recordCount": "4",
+    "message": "Success",
+    "record": [
+        {
+            "id": "1",
+            "isactive": "false",
+            "dateis": "",
+            "name": "Tools"
+        },
+        {
+            "id": "2",
+            "isactive": "false",
+            "dateis": "",
+            "name": "Browser"
+        },
+        {
+            "id": "3",
+            "isactive": "false",
+            "dateis": "",
+            "name": "AntiVirus"
+        },
+        {
+            "id": "4",
+            "isactive": "false",
+            "dateis": "",
+            "name": "Dev Tools"
+        }
+    ]
+}

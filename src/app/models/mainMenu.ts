@@ -2,6 +2,6 @@
 export interface mainMenu {
     id: number;
     isactive: boolean;
-    datetime: Date;
+    dateis: Date;
     name: string;
 }

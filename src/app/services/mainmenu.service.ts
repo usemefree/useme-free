@@ -12,26 +12,37 @@ export class MainmenuService {
 
   constructor(private http: HttpClient) { }
 
-  public getJSON(): void {
-    const apiUrl = GlobalConstants.ApiUrl + "OperatingSystem/GetData";
-
-    const header = new HttpHeaders(
-      {
-        'ApiKey': GlobalConstants.httpGetKey,
-      }
-    );
-
-    this.http.get<jsonDataResult>(
-      apiUrl,
-      { headers: header }
-    )
-      .subscribe(data => {
-        const datais: jsonDataResult = (data as jsonDataResult);
-        if (datais.message === "Success") {
-          this.length = datais.recordCount;
-          GlobalConstants.mainMenuData = (datais.record as mainMenu[]);
-        }
-      });
+  public getJSON(): void{
+    this.http.get<jsonDataResult>("assets/data/operatingSystems.json")
+    .subscribe(data =>{
+      const datais: jsonDataResult = (data as jsonDataResult);
+            if (datais.message === "Success") {
+              this.length = datais.recordCount;
+              GlobalConstants.mainMenuData = (datais.record as mainMenu[]);
+            }
+    });
   }
+
+  // public getJSON(): void {
+  //   const apiUrl = GlobalConstants.ApiUrl + "OperatingSystem/GetData";
+
+  //   const header = new HttpHeaders(
+  //     {
+  //       'ApiKey': GlobalConstants.httpGetKey,
+  //     }
+  //   );
+
+  //   this.http.get<jsonDataResult>(
+  //     apiUrl,
+  //     { headers: header }
+  //   )
+  //     .subscribe(data => {
+  //       const datais: jsonDataResult = (data as jsonDataResult);
+  //       if (datais.message === "Success") {
+  //         this.length = datais.recordCount;
+  //         GlobalConstants.mainMenuData = (datais.record as mainMenu[]);
+  //       }
+  //     });
+  // }
 
 }

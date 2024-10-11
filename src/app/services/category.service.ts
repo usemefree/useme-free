@@ -14,17 +14,7 @@ export class CategoryService {
   constructor(private http: HttpClient) {  }
 
   public getJSON(): void {
-    const apiUrl = GlobalConstants.ApiUrl + "SoftwareCategory/GetData";
-    const header = new HttpHeaders(
-      {
-        'ApiKey': GlobalConstants.httpGetKey,
-      }
-    );
-
-    this.http.get<jsonDataResult>(
-      apiUrl,
-      { headers: header }
-    )
+    this.http.get<jsonDataResult>("assets/data/softwareCategory.json")
     .subscribe(data => {
       const datais: jsonDataResult = (data as jsonDataResult);
       if (datais.message === "Success") {
@@ -33,5 +23,26 @@ export class CategoryService {
       }
     });
   }
+
+  // public getJSON(): void {
+  //   const apiUrl = GlobalConstants.ApiUrl + "SoftwareCategory/GetData";
+  //   const header = new HttpHeaders(
+  //     {
+  //       'ApiKey': GlobalConstants.httpGetKey,
+  //     }
+  //   );
+
+  //   this.http.get<jsonDataResult>(
+  //     apiUrl,
+  //     { headers: header }
+  //   )
+  //   .subscribe(data => {
+  //     const datais: jsonDataResult = (data as jsonDataResult);
+  //     if (datais.message === "Success") {
+  //       this.length = datais.recordCount;
+  //       GlobalConstants.categoryData = (datais.record as category[]);
+  //     }
+  //   });
+  // }
 
 }
