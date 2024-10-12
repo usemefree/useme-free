@@ -12,15 +12,12 @@ export class MainmenuService {
 
   constructor(private http: HttpClient) { }
 
-  public getJSON(): void{
-    this.http.get<jsonDataResult>("assets/data/operatingSystems.json")
-    .subscribe(data =>{
-      const datais: jsonDataResult = (data as jsonDataResult);
-            if (datais.message === "Success") {
-              this.length = datais.recordCount;
-              GlobalConstants.mainMenuData = (datais.record as mainMenu[]);
-            }
-    });
+  public getJSON(): void {
+    this.http.get<mainMenu[]>(`${GlobalConstants.JsonFilePath}operatingSystems.json`)
+      .subscribe(data => {
+        GlobalConstants.mainMenuData = (data as mainMenu[]);
+        this.length = GlobalConstants.mainMenuData.length
+      });
   }
 
   // public getJSON(): void {

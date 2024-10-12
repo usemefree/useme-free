@@ -10,18 +10,15 @@ import { category } from '../models/category';
 export class CategoryService {
 
   length: number = 0;
-  
-  constructor(private http: HttpClient) {  }
+
+  constructor(private http: HttpClient) { }
 
   public getJSON(): void {
-    this.http.get<jsonDataResult>("assets/data/softwareCategory.json")
-    .subscribe(data => {
-      const datais: jsonDataResult = (data as jsonDataResult);
-      if (datais.message === "Success") {
-        this.length = datais.recordCount;
-        GlobalConstants.categoryData = (datais.record as category[]);
-      }
-    });
+    this.http.get<category[]>(`${GlobalConstants.JsonFilePath}softwareCategory.json`)
+      .subscribe(data => {
+        GlobalConstants.categoryData = (data as category[]);
+        this.length = GlobalConstants.categoryData.length;
+      });
   }
 
   // public getJSON(): void {
