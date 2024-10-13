@@ -32,7 +32,7 @@ export class MainmenuComponent implements OnInit {
     GlobalConstants.currentOperatingS = id;
     console.log(GlobalConstants.currentOperatingS);
     //this.sService.getDataPagination(1)
-    this.sService.getJSON(1);
+    this.sService.getJsonFile(1);
   }
 
 }
