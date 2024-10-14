@@ -4,9 +4,9 @@ import { SoftwareData, SoftwareDataView } from "../models/SoftwareData";
 
 export class GlobalConstants {
 
-    public static JsonFilePath: string = "assets/data/"
     public static pageSize: number = 5;
-
+    public static OnInit :boolean = false;
+    
     public static currentOperatingS: number = 1;
     public static currentcategory: number = 1;
     public static softwareData: SoftwareData[]

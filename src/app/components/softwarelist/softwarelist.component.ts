@@ -16,33 +16,31 @@ export class SoftwarelistComponent implements OnInit {
   length: number = 0;
   pagetotal: number = 0;
   currentPage: number = 1;
-
   softwareDataView: SoftwareDataView[] = [];
 
   constructor(private service: SoftwarelistService) { }
 
   ngOnInit(): void {
-    this.getdataPagination();
+    this.service.getJsonFile();
   }
 
   ngDoCheck(): void {
-    this.softwareDataView = GlobalConstants.softwareDataView;
+    if(GlobalConstants.OnInit == true)
+      this.currentPage=1;
+    const start = (this.currentPage - 1) * GlobalConstants.pageSize;
+    const end = start + GlobalConstants.pageSize;
     this.pagetotal = this.service.length > GlobalConstants.pageSize ? Math.ceil(this.service.length / GlobalConstants.pageSize) : 1
+    this.softwareDataView = GlobalConstants.softwareDataView.slice(start, end);
+    GlobalConstants.OnInit=false;
   }
 
-  getdataPagination(): void {
-    //let osid = GlobalConstants.mainMenuData.find(x => x.id === GlobalConstants.currentOperatingS)?.name;
-    this.service.getJsonFile(this.currentPage);
-  }
 
   pagination(pageno: number = 1) {
     this.currentPage = pageno;
-    this.getdataPagination();
   }
 
   paginationlast() {
     this.currentPage = this.pagetotal;
-    this.getdataPagination();
   }
 
   createRange() {

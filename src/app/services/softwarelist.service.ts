@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { jsonDataResult } from '../models/jsonDataResult';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from '@angular/common/http';
 import { GlobalConstants } from '../common/global-constants';
 import { SoftwareData, SoftwareDataView } from '../models/SoftwareData';
 import * as windata from '../../../public/assets/data/packageWindows.json'
@@ -19,73 +16,26 @@ export class SoftwarelistService {
   products: any;
   os: string = 'Windows';
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  public getJSON(PageNo: number = 1): void {
 
-    const start = (PageNo - 1) * GlobalConstants.pageSize;
-    const end = start + GlobalConstants.pageSize;
-
-    this.os = GlobalConstants.mainMenuData.find(x => x.id === GlobalConstants.currentOperatingS)?.name ?? "Windows";
-
-    this.http.get<SoftwareData[]>(`${GlobalConstants.JsonFilePath}package${this.os}.json`)
-      .subscribe(data => {
-        this.softwareData = (data as SoftwareData[])
-        this.length = this.softwareData.length;
-
-        let dataView = this.softwareData
-          .slice(start, end)
-          .map(x => {
-            let ydata = GlobalConstants.mainMenuData.find(y => y.id == x.os);
-            let ccat = GlobalConstants.categoryData.find(z => z.id == x.category);
-            return {
-              id: x.id,
-              isactive: x.isactive,
-              os: ydata ? ydata.name : 'XOS',
-              category: ccat ? ccat.name : 'ALL',
-              name: x.name,
-              imgsrc: x.imgsrc,
-              summary: x.summary,
-              weblink: x.weblink,
-              downloadlink: x.downloadlink,
-              details: x.details,
-              counting: x.counting
-            }
-          });
-        GlobalConstants.softwareDataView = (dataView as SoftwareDataView[]);
-      });
-  }
-
-  public getJsonFile(PageNo: number = 1): void {
-
-    const start = (PageNo - 1) * GlobalConstants.pageSize;
-    const end = start + GlobalConstants.pageSize;
+  public getJsonFile(): void {
 
     switch (GlobalConstants.currentOperatingS.toString()) {
       case '1':
         this.products = (windata as any).default;
-        console.log('1');
-        console.log(this.products);
         break;
       case '2':
         this.products = (lindata as any).default;
-        console.log('2');
-        console.log(this.products);
         break;
       case '3':
         this.products = (macdata as any).default;
-        console.log('3');
-        console.log(this.products);
         break;
       case '4':
         this.products = (anddata as any).default;
-        console.log('4');
-        console.log(this.products);
         break;
       default:
         this.products = (windata as any).default;
-        console.log('0');
-        console.log(this.products);
         break;
     }
   
@@ -93,9 +43,7 @@ export class SoftwarelistService {
     this.softwareData = (this.products as SoftwareData[]);
     this.length = this.softwareData.length;
     const dataView = this.softwareData
-      .slice(start, end)
       .map(x => {
-        console.log(`Start ${start} End ${end}`);
         let ydata = GlobalConstants.mainMenuData.find(y => y.id == x.os);
         let ccat = GlobalConstants.categoryData.find(z => z.id == x.category);
         return {
@@ -111,9 +59,44 @@ export class SoftwarelistService {
           details: x.details,
           counting: x.counting
         }
-      }).slice(start, end);
+      });
     GlobalConstants.softwareDataView = (dataView as SoftwareDataView[]);
   }
+
+    // public getJSON(PageNo: number = 1): void {
+
+  //   const start = (PageNo - 1) * GlobalConstants.pageSize;
+  //   const end = start + GlobalConstants.pageSize;
+
+  //   this.os = GlobalConstants.mainMenuData.find(x => x.id === GlobalConstants.currentOperatingS)?.name ?? "Windows";
+
+  //   this.http.get<SoftwareData[]>(`${GlobalConstants.JsonFilePath}package${this.os}.json`)
+  //     .subscribe(data => {
+  //       this.softwareData = (data as SoftwareData[])
+  //       this.length = this.softwareData.length;
+
+  //       let dataView = this.softwareData
+  //         .slice(start, end)
+  //         .map(x => {
+  //           let ydata = GlobalConstants.mainMenuData.find(y => y.id == x.os);
+  //           let ccat = GlobalConstants.categoryData.find(z => z.id == x.category);
+  //           return {
+  //             id: x.id,
+  //             isactive: x.isactive,
+  //             os: ydata ? ydata.name : 'XOS',
+  //             category: ccat ? ccat.name : 'ALL',
+  //             name: x.name,
+  //             imgsrc: x.imgsrc,
+  //             summary: x.summary,
+  //             weblink: x.weblink,
+  //             downloadlink: x.downloadlink,
+  //             details: x.details,
+  //             counting: x.counting
+  //           }
+  //         });
+  //       GlobalConstants.softwareDataView = (dataView as SoftwareDataView[]);
+  //     });
+  // }
 
   // public getDataPagination(PageNo: number = 1): void {
 
