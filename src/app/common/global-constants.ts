@@ -14,5 +14,4 @@ export class GlobalConstants {
 
     public static mainMenuData: mainMenu[] = [];
     public static categoryData: category[] = [];
-
 }

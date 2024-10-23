@@ -38,7 +38,6 @@ export class SoftwarelistService {
         this.products = (windata as any).default;
         break;
     }
-  
    
     this.softwareData = (this.products as SoftwareData[]);
     this.length = this.softwareData.length;
