@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "isactive": "false",
+        "dateis": "",
+        "name": "Windows"
+    },
+    {
+        "id": "2",
+        "isactive": "false",
+        "dateis": "",
+        "name": "Linux"
+    },
+    {
+        "id": "3",
+        "isactive": "false",
+        "dateis": "",
+        "name": "Mac"
+    },
+    {
+        "id": "4",
+        "isactive": "false",
+        "dateis": "",
+        "name": "Android"
+    }
+]

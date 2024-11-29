@@ -22,15 +22,17 @@ export class MainmenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getJSON();
+
   }
   ngDoCheck(): void {
-    this.length=this.service.length;
+    this.length = this.service.length;
     this.mainmenu = GlobalConstants.mainMenuData;
   }
 
   setKey(id: number): void {
     GlobalConstants.currentOperatingS = id;
-    this.sService.getDataPagination(1)
+    GlobalConstants.OnInit = true;
+    this.sService.getJsonFile();
   }
 
 }

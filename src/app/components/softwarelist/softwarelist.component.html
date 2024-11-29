@@ -12,22 +12,29 @@
             </div>
             <div class="card-body">
                 <p class="card-text">{{ item.summary}}</p>
-                <a class="link-offset-2 link-underline link-underline-opacity-0" [href]=item.downloadlink target="_blank"  >Download</a>
-                <a class="link-offset-2 link-underline link-underline-opacity-0" [href]=item.weblink target="_blank" style="margin-left: 1rem;" >Web Link</a>
+                <a class="link-offset-2 link-underline link-underline-opacity-0" [href]=item.downloadlink
+                    target="_blank">Download</a>
+                <a class="link-offset-2 link-underline link-underline-opacity-0" [href]=item.weblink target="_blank"
+                    style="margin-left: 1rem;">Web Link</a>
             </div>
         </div>
     </li>
 </ul>
-<nav aria-label="...">
-    <ul class="pagination justify-content-center">
-        <li class="page-item ">
-            <a class="page-link" (click)="pagination(0)">First</a>
-        </li>
-        <li class="page-item" *ngFor="let pageno of createRange()">
-            <a class="page-link" (click)="pagination(pageno)"> {{ pageno }}</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" (click)="paginationlast()">Last</a>
-        </li>
-    </ul>
-</nav>
+<div #anchor></div>
+<!-- 
+<div [style.display]="(pagetotal === 0 || pagetotal===1) ?'none':'unset'">
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            <li class="page-item ">
+                <a class="page-link" (click)="pagination(1)">First</a>
+            </li>
+            <li class="page-item" *ngFor="let pageno of createRange()">
+                <a class="page-link" (click)="pagination(pageno)"> {{ pageno }}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" (click)="paginationlast()">Last</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+ -->
