@@ -4,6 +4,7 @@ import { CategoryService } from '../../services/category.service';
 import { jsonDataResult } from '../../models/jsonDataResult';
 import { CommonModule } from '@angular/common';
 import {GlobalConstants} from '../../common/global-constants';
+import { SoftwarelistService } from '../../services/softwarelist.service';
 
 @Component({
   selector: 'app-category',
@@ -17,7 +18,7 @@ export class CategoryComponent implements OnInit {
   cat: category[] = [];
   length: number = 0;
 
-  constructor(private service: CategoryService) {  }
+  constructor(private service: CategoryService, private sService: SoftwarelistService) {  }
 
   ngOnInit(): void {
     this.service.getJSON();
@@ -29,6 +30,8 @@ export class CategoryComponent implements OnInit {
 
   setKey(id: number): void {
     GlobalConstants.currentcategory = id;
+    GlobalConstants.OnInit = true;
+    this.sService.getJsonFile();
    // console.log(GlobalConstants.currentcategory);
   }
 }

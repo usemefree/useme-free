@@ -8,7 +8,7 @@ export class GlobalConstants {
     public static OnInit :boolean = false;
     
     public static currentOperatingS: number = 1;
-    public static currentcategory: number = 1;
+    public static currentcategory: number = 0;
     public static softwareData: SoftwareData[]
     public static softwareDataView: SoftwareDataView[]
 

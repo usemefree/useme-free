@@ -30,6 +30,7 @@ export class MainmenuComponent implements OnInit {
   }
 
   setKey(id: number): void {
+    GlobalConstants.currentcategory=0;
     GlobalConstants.currentOperatingS = id;
     GlobalConstants.OnInit = true;
     this.sService.getJsonFile();

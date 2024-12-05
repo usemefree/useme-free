@@ -55,12 +55,12 @@ export class SoftwarelistComponent implements OnInit, AfterViewInit, DoCheck {
       }
     });
     this.observer.observe(this.anchor.nativeElement);
-
   }
 
   loadItems() {
     if (GlobalConstants.OnInit == true) {
       this.softwareDataView = GlobalConstants.softwareDataView.slice(this.start, this.end);
+      this.currentPage++;
     }
     else {
       this.softwareDataView.push(...GlobalConstants.softwareDataView.slice(this.start, this.end));

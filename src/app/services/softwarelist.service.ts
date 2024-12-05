@@ -39,7 +39,13 @@ export class SoftwarelistService {
         break;
     }
    
-    this.softwareData = (this.products as SoftwareData[]);
+    if (GlobalConstants.currentcategory === 0) {
+      this.softwareData = (this.products as SoftwareData[]);
+    }
+    else {
+      this.softwareData = (this.products as SoftwareData[]).filter(x => x.category == GlobalConstants.currentcategory);
+    }
+    
     this.length = this.softwareData.length;
     const dataView = this.softwareData
       .map(x => {
@@ -59,10 +65,11 @@ export class SoftwarelistService {
           counting: x.counting
         }
       });
+      console.log(this.length ,"categor ",GlobalConstants.currentcategory );
     GlobalConstants.softwareDataView = (dataView as SoftwareDataView[]);
   }
 
-    // public getJSON(PageNo: number = 1): void {
+  // public getJSON(PageNo: number = 1): void {
 
   //   const start = (PageNo - 1) * GlobalConstants.pageSize;
   //   const end = start + GlobalConstants.pageSize;

@@ -1,15 +1,15 @@
 [
   {
-    "id": 17,
-    "isactive": true,
-    "os": 2,
-    "category": 1,
-    "name": "winZip",
-    "imgsrc": "win-7zip.png",
-    "summary": "7-Zip is a file archiver with a high compression ratio.",
-    "weblink": "https://www.7-zip.org/",
-    "downloadlink": "https://objects.githubusercontent.com/github-production-release-asset-2e65be/466446150/4e4bd070-bb80-41f4-b787-72bd5b200e3c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240916%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240916T162755Z&X-Amz-Expires=300&X-Amz-Signature=c4adb2fb9f5a7023be324cb7aad922c216f10a931597adc3e7ded8e12beeddeb&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=466446150&response-content-disposition=attachment%3B%20filename%3D7z2408-x64.exe&response-content-type=application%2Foctet-stream",
-    "details": "",
-    "counting": 0
+      "id": 17,
+      "isactive": true,
+      "os": 2,
+      "category": 1,
+      "name": "winZip",
+      "imgsrc": "win-7zip.png",
+      "summary": "7-Zip is a file archiver with a high compression ratio.",
+      "weblink": "https://www.7-zip.org/",
+      "downloadlink": "https://objects.githubusercontent.com/github-production-release-asset-2e65be/466446150/4e4bd070-bb80-41f4-b787-72bd5b200e3c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240916%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240916T162755Z&X-Amz-Expires=300&X-Amz-Signature=c4adb2fb9f5a7023be324cb7aad922c216f10a931597adc3e7ded8e12beeddeb&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=466446150&response-content-disposition=attachment%3B%20filename%3D7z2408-x64.exe&response-content-type=application%2Foctet-stream",
+      "details": "",
+      "counting": 0
   }
 ]
