@@ -1,26 +1,56 @@
 [
     {
         "id": "1",
-        "isactive": "false",
-        "dateis": "",
+        "isactive": "true",
+        "dateis": "2024/10/01",
         "name": "Tools"
     },
     {
         "id": "2",
-        "isactive": "false",
-        "dateis": "",
+        "isactive": "true",
+        "dateis": "2024/10/01",
         "name": "Browser"
     },
     {
         "id": "3",
-        "isactive": "false",
-        "dateis": "",
+        "isactive": "true",
+        "dateis": "2024/10/01",
         "name": "AntiVirus"
     },
     {
         "id": "4",
-        "isactive": "false",
-        "dateis": "",
+        "isactive": "true",
+        "dateis": "2024/10/01",
         "name": "Dev Tools"
+    },
+    {
+        "id": "5",
+        "isactive": "true",
+        "dateis": "2024/10/01",
+        "name": "IDE"
+    },
+    {
+        "id": "6",
+        "isactive": "true",
+        "dateis": "2024/10/01",
+        "name": "Remoting"
+    },
+    {
+        "id": "7",
+        "isactive": "true",
+        "dateis": "2024/10/01",
+        "name": "Development Kit"
+    },
+    {
+        "id": "8",
+        "isactive": "true",
+        "dateis": "2024/10/01",
+        "name": "MultiMedia"
+    },
+    {
+        "id": "9",
+        "isactive": "true",
+        "dateis": "2024/10/01",
+        "name": "Networking"
     }
 ]
